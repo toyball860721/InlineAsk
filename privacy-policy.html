@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InlineAsk - Privacy Policy</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 {
+            color: #f59e0b;
+            border-bottom: 2px solid #f59e0b;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0f1117;
+            margin-top: 30px;
+        }
+        .last-updated {
+            color: #666;
+            font-size: 14px;
+            font-style: italic;
+        }
+        .highlight {
+            background: #fef3c7;
+            padding: 15px;
+            border-left: 4px solid #f59e0b;
+            margin: 20px 0;
+        }
+        a {
+            color: #f59e0b;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>🦞 InlineAsk - Privacy Policy</h1>
+    <p class="last-updated">Last Updated: March 27, 2026</p>
+
+    <div class="highlight">
+        <strong>TL;DR:</strong> InlineAsk does not collect, store, or transmit any of your data. Everything stays on your device and goes directly to your chosen AI API.
+    </div>
+
+    <h2>1. Information Collection</h2>
+    <p><strong>InlineAsk does NOT collect any user data.</strong></p>
+    <p>We do not:</p>
+    <ul>
+        <li>Collect personal information</li>
+        <li>Track your browsing activity</li>
+        <li>Store your conversations</li>
+        <li>Use analytics or tracking tools</li>
+        <li>Share data with third parties</li>
+    </ul>
+
+    <h2>2. Data Storage</h2>
+    <p>InlineAsk stores the following information <strong>locally on your device only</strong> using Chrome's storage API:</p>
+    <ul>
+        <li><strong>API Endpoint URL</strong> - The URL of your chosen AI service</li>
+        <li><strong>API Key</strong> - Your authentication key (stored encrypted by Chrome)</li>
+        <li><strong>Model Name</strong> - Your preferred AI model</li>
+    </ul>
+    <p>This data never leaves your device except when you explicitly send requests to your configured API endpoint.</p>
+
+    <h2>3. Data Transmission</h2>
+    <p>When you use InlineAsk to ask questions:</p>
+    <ul>
+        <li>Your selected text and questions are sent <strong>directly to your configured API endpoint</strong></li>
+        <li>Data flows: Your Browser → Your Chosen API (OpenAI, Claude, Qwen, etc.)</li>
+        <li>InlineAsk acts as a pass-through and does not intercept, store, or process your data</li>
+        <li>We have no servers - all processing happens on your device</li>
+    </ul>
+
+    <h2>4. Third-Party Services</h2>
+    <p>InlineAsk does not use any third-party services for analytics, tracking, or data collection.</p>
+    <p>However, when you configure an AI API (such as OpenAI, Anthropic, Alibaba, etc.), your data is subject to <strong>that service's privacy policy</strong>:</p>
+    <ul>
+        <li><a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI Privacy Policy</a></li>
+        <li><a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Privacy Policy</a></li>
+        <li><a href="https://www.alibabacloud.com/help/en/model-studio/developer-reference/privacy-policy" target="_blank">Alibaba Cloud Privacy Policy</a></li>
+    </ul>
+    <p>For local APIs (Ollama, LM Studio), data never leaves your device.</p>
+
+    <h2>5. Permissions Explanation</h2>
+    <p>InlineAsk requests the following Chrome permissions:</p>
+    <ul>
+        <li><strong>storage</strong> - To save your API configuration locally</li>
+        <li><strong>tabs</strong> - To inject the text selection interface into web pages</li>
+        <li><strong>scripting</strong> - To enable text selection detection</li>
+        <li><strong>&lt;all_urls&gt;</strong> - To work on any webpage you visit</li>
+    </ul>
+    <p>These permissions are used solely for the extension's core functionality and not for data collection.</p>
+
+    <h2>6. Data Security</h2>
+    <ul>
+        <li>Your API keys are stored using Chrome's secure storage API</li>
+        <li>All API communications use HTTPS encryption</li>
+        <li>No data is logged or transmitted to InlineAsk developers</li>
+    </ul>
+
+    <h2>7. Children's Privacy</h2>
+    <p>InlineAsk does not knowingly collect information from children under 13. The extension is designed for general audiences.</p>
+
+    <h2>8. Changes to This Policy</h2>
+    <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated "Last Updated" date.</p>
+
+    <h2>9. Open Source</h2>
+    <p>InlineAsk is open source. You can review the complete source code to verify our privacy claims:</p>
+    <p><a href="https://github.com/toyball860721/InlineAsk" target="_blank">https://github.com/toyball860721/InlineAsk</a></p>
+
+    <h2>10. Contact</h2>
+    <p>If you have questions about this privacy policy, please open an issue on our GitHub repository:</p>
+    <p><a href="https://github.com/toyball860721/InlineAsk/issues" target="_blank">https://github.com/toyball860721/InlineAsk/issues</a></p>
+
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+    <p style="text-align: center; color: #666; font-size: 14px;">
+        Built with ❤️ for privacy-conscious developers<br>
+        <a href="https://github.com/toyball860721/InlineAsk">GitHub</a> •
+        <a href="https://github.com/toyball860721/InlineAsk/blob/main/LICENSE">MIT License</a>
+    </p>
+</body>
+</html>
