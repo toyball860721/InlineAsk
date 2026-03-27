@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClawInlineAsk Settings</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --bg-elevated: #161b26;
+      --bg-input: #1a2030;
+      --border: rgba(255,255,255,0.08);
+      --border-accent: rgba(245,158,11,0.4);
+      --amber: #f59e0b;
+      --amber-dim: rgba(245,158,11,0.12);
+      --text: #e4e9f0;
+      --text-dim: #7a8899;
+      --text-success: #34d399;
+      --text-error: #f87171;
+      --radius: 8px;
+      --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      width: 360px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+
+    .header {
+      padding: 14px 16px 12px;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 32px; height: 32px;
+      background: var(--amber-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .header-text h1 { font-size: 14px; font-weight: 600; }
+    .header-text p  { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
+
+    .content {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 10px; font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+
+    label {
+      font-size: 11px; font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.07em;
+    }
+
+    input, select {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 7px 10px;
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--border-accent);
+      box-shadow: 0 0 0 2px rgba(245,158,11,0.08);
+    }
+
+    input::placeholder { color: var(--text-dim); opacity: 0.6; }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a8899' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 28px;
+      cursor: pointer;
+    }
+
+    select option { background: #1a2030; color: #e4e9f0; }
+
+    .hint { font-size: 10px; color: var(--text-dim); line-height: 1.5; }
+
+    .row { display: flex; gap: 6px; }
+    .row input { flex: 1; }
+
+    .btn {
+      border-radius: var(--radius);
+      font-family: var(--sans);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      white-space: nowrap;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--amber); color: #0f1117;
+      font-size: 13px; padding: 9px 14px;
+    }
+    .btn-primary:hover { background: #fbbf24; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-secondary {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border) !important;
+      color: var(--text-dim);
+      font-size: 11px; padding: 7px 10px;
+    }
+    .btn-secondary:hover { color: var(--text); border-color: var(--border-accent) !important; }
+
+    .actions { display: flex; gap: 8px; }
+    .actions .btn-primary { flex: 1; }
+
+    #status {
+      font-size: 12px; padding: 8px 10px;
+      border-radius: var(--radius);
+      display: none; line-height: 1.4;
+    }
+    #status.success {
+      display: block;
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.2);
+      color: var(--text-success);
+    }
+    #status.error {
+      display: block;
+      background: rgba(248,113,113,0.08);
+      border: 1px solid rgba(248,113,113,0.2);
+      color: var(--text-error);
+    }
+
+    .footer {
+      padding: 10px 16px;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer a { color: var(--text-dim); text-decoration: none; font-size: 11px; }
+    .footer a:hover { color: var(--amber); }
+    .version { font-size: 10px; color: var(--text-dim); font-family: var(--mono); }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🦞</div>
+    <div class="header-text">
+      <h1>ClawInlineAsk</h1>
+      <p>划词提问 · 任意 OpenAI 兼容 API</p>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="section-title">API 配置</div>
+
+    <div class="field">
+      <label>Base URL</label>
+      <input type="text" id="baseUrl" placeholder="https://api.example.com/v1" />
+      <div class="hint">填 Base URL（如 /v1）或完整端点 URL</div>
+    </div>
+
+    <div class="field">
+      <label>API Key</label>
+      <input type="password" id="apiKey" placeholder="sk-... 或留空" />
+      <div class="hint">无需认证可留空</div>
+    </div>
+
+    <div class="field">
+      <label>模型名称</label>
+      <div class="row">
+        <input type="text" id="modelInput" placeholder="手动输入，或点 Load 加载" />
+        <button class="btn btn-secondary" id="loadModelsBtn">Load</button>
+      </div>
+      <select id="modelSelect" style="margin-top:5px; display:none;"></select>
+      <div class="hint" id="modelHint"></div>
+    </div>
+
+    <div id="status"></div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="testBtn">Test 连接</button>
+      <button class="btn btn-secondary" id="saveBtn">保存</button>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/toyball860721/claw-inline-ask" target="_blank">GitHub</a>
+    <div class="version">v1.5.0</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
