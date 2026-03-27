@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "InlineAsk",
   "version": "2.0.0",
-  "description": "任意网页划词提问 — Ask AI inline on any page 🦞",
+  "description": "Select any text on any webpage, ask AI instantly. Universal inline assistant for OpenAI/Claude/Qwen/MiniMax APIs. No tab switching.",
   "permissions": [
     "storage",
     "tabs",
